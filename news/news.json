@@ -1,0 +1,56 @@
+[
+
+  {
+    "id": "001",
+    "title": "ちょっとしたデザイン変更 | NEWS",
+    "date": "2025.08.30",
+    "category": "ちょっとしたお知らせ",
+    "description": "デザイン変更!",
+    "link": "/news/001"
+  },
+  
+  {
+    "id": "002",
+    "title": "パクリについて | NEWS",
+    "date": "2025.08.31",
+    "category": "緊急",
+    "description": "パクリが多発しています!",
+    "link": "/news/002"
+  },
+
+  {
+    "id": "003",
+    "title": "新 高級ジェネ™ 3 作った方がいい? | NEWS",
+    "date": "2025.09.14",
+    "category": "投票",
+    "description": "投票お願いします...。",
+    "link": "/news/003"
+  },
+
+  {
+    "id": "004",
+    "title": "予告 | NEWS",
+    "date": "2025.09.20",
+    "category": "特大お知らせ",
+    "description": "一体何が...?",
+    "link": "/news/004"
+  },
+
+  {
+    "id": "005",
+    "title": "パクリ多発PART2 | NEWS",
+    "date": "2025.12.20",
+    "category": "緊急",
+    "description": "PART2来ないでほしかった",
+    "link": "/news/005"
+  },
+
+  {
+    "id": "006",
+    "title": "公式サイトv6 UPDATE | NEWS",
+    "date": "2025.12.20",
+    "category": "ちょっとしたお知らせ",
+    "description": "デザインが一新!!!",
+    "link": "/news/006"
+  }
+]

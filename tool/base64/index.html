@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像 ➔ Base64 変換ツール</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        // モノトーン・ニュートラルな色味で統一
+                        light: {
+                            bg: '#FAFAFA',      // 非常に淡いグレー
+                            surface: '#FFFFFF', // 真っ白
+                            primary: '#F4F4F5', // ボタン背景など（Zinc 100）
+                            border: '#E4E4E7',  // ボーダー（Zinc 200）
+                            text: '#18181B',    // ほぼ黒（Zinc 900）
+                            subtext: '#71717A', // サブテキスト（Zinc 500）
+                            accent: '#27272A'   // アクセント（Zinc 800）
+                        },
+                        dark: {
+                            bg: '#18181B',      // ほぼ黒（Zinc 900）
+                            surface: '#27272A', // ダークグレー（Zinc 800）
+                            primary: '#3F3F46', // ボタン背景など（Zinc 700）
+                            border: '#3F3F46',  // ボーダー
+                            text: '#F4F4F5',    // オフホワイト（Zinc 100）
+                            subtext: '#A1A1AA', // サブテキスト（Zinc 400）
+                            accent: '#FAFAFA'   // アクセント
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .glass-panel {
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+        /* スクロールバーのカスタマイズ */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background-color: #d4d4d8; /* Zinc 300 */
+            border-radius: 4px;
+        }
+        .dark textarea::-webkit-scrollbar-thumb {
+            background-color: #52525b; /* Zinc 600 */
+        }
+        
+        /* トースト通知のアニメーション */
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+        .toast {
+            animation: fadeInOut 3s forwards;
+        }
+    </style>
+</head>
+<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text min-h-screen flex flex-col font-sans selection:bg-gray-300 selection:text-black dark:selection:bg-gray-600 dark:selection:text-white">
+
+    <!-- ヘッダー -->
+    <header class="w-full p-6 flex justify-between items-center max-w-4xl mx-auto">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border flex items-center justify-center text-light-text dark:text-dark-text font-bold text-lg shadow-sm">
+                B
+            </div>
+            <h1 class="text-xl font-bold tracking-tight">Base64 Converter</h1>
+        </div>
+        
+        <!-- ダークモード切り替えボタン -->
+        <button id="themeToggle" class="relative w-12 h-12 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex items-center justify-center group" aria-label="テーマ切り替え">
+            <!-- 月アイコン (ライトモード時に表示 -> ダークモードへ切り替え) -->
+            <img src="https://kokyujene.github.io/tool/study/moon.webp" alt="Dark Mode" class="w-8 h-8 transition-all duration-500 rotate-0 opacity-100 dark:opacity-0 dark:-rotate-90 absolute">
+            <!-- 太陽アイコン (ダークモード時に表示 -> ライトモードへ切り替え) -->
+            <img src="https://kokyujene.github.io/tool/study/sun.webp" alt="Light Mode" class="w-8 h-8 transition-all duration-500 rotate-90 opacity-0 dark:opacity-100 dark:rotate-0 absolute">
+        </button>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="flex-grow flex flex-col items-center justify-start pt-8 px-4 pb-12 w-full max-w-3xl mx-auto">
+        
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold mb-3 tracking-tight">画像をData URLへ変換</h2>
+            <p class="text-light-subtext dark:text-dark-subtext">画像ファイルをブラウザ上で素早くBase64コードに変換します。<br class="hidden sm:block">サーバーに画像が送信されることはありません。</p>
+        </div>
+
+        <!-- ドロップエリア -->
+        <div id="dropArea" class="w-full glass-panel bg-light-surface dark:bg-dark-surface border-2 border-dashed border-light-border dark:border-dark-border rounded-[2rem] p-12 text-center cursor-pointer hover:border-gray-400 dark:hover:border-gray-500 hover:bg-white dark:hover:bg-[#2e2e31] shadow-sm transition-all group relative overflow-hidden">
+            <input type="file" id="fileInput" accept="image/*" class="hidden">
+            
+            <div class="pointer-events-none relative z-10">
+                <div class="w-16 h-16 mx-auto mb-4 bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <p class="text-lg font-medium mb-1 text-light-text dark:text-dark-text">画像をここにドロップ</p>
+                <p class="text-sm text-light-subtext dark:text-dark-subtext">または クリックして選択</p>
+            </div>
+        </div>
+
+        <!-- 結果表示エリア -->
+        <div id="result" class="w-full mt-8 hidden animation-fade-in">
+            
+            <!-- プレビューカード -->
+            <div class="bg-light-surface dark:bg-dark-surface rounded-[2rem] p-6 shadow-sm border border-light-border dark:border-dark-border mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        <span class="w-2 h-6 bg-gray-400 dark:bg-gray-500 rounded-full"></span>
+                        プレビュー
+                    </h3>
+                    <span id="fileSize" class="text-xs font-mono bg-light-primary dark:bg-dark-primary px-3 py-1 rounded-full text-light-subtext dark:text-dark-subtext"></span>
+                </div>
+                <div class="bg-[#f4f4f5] dark:bg-[#18181b] rounded-xl p-4 flex justify-center items-center min-h-[200px] border border-dashed border-light-border dark:border-dark-border">
+                    <img id="preview" class="max-w-full max-h-[400px] object-contain rounded-lg shadow-sm" alt="Preview">
+                </div>
+            </div>
+
+            <!-- コード出力カード -->
+            <div class="bg-light-surface dark:bg-dark-surface rounded-[2rem] p-6 shadow-sm border border-light-border dark:border-dark-border relative overflow-hidden">
+                <div class="flex justify-between items-end mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold flex items-center gap-2 mb-1">
+                            <span class="w-2 h-6 bg-gray-600 dark:bg-gray-300 rounded-full"></span>
+                            Data URL
+                        </h3>
+                        <p class="text-xs text-light-subtext dark:text-dark-subtext">HTMLの&lt;img&gt;タグやCSSに直接貼り付けられます</p>
+                    </div>
+                    <button onclick="copyText()" class="hidden sm:flex items-center gap-2 bg-light-accent dark:bg-dark-accent text-white dark:text-black px-6 py-2.5 rounded-full font-medium hover:opacity-90 transition-all shadow-sm active:scale-95">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                        コピーする
+                    </button>
+                </div>
+                
+                <div class="relative group">
+                    <textarea id="dataUrlText" readonly onclick="this.select()" class="w-full h-48 bg-[#f4f4f5] dark:bg-[#18181b] border border-light-border dark:border-dark-border rounded-xl p-4 font-mono text-xs text-light-subtext dark:text-dark-subtext resize-none focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 transition-all"></textarea>
+                    
+                    <!-- モバイル用フローティングコピーボタン -->
+                    <button onclick="copyText()" class="sm:hidden absolute bottom-4 right-4 bg-light-accent dark:bg-dark-accent text-white dark:text-black p-3 rounded-full shadow-lg active:scale-90 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- トースト通知 -->
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-light-accent dark:bg-white text-white dark:text-black px-6 py-3 rounded-full shadow-xl flex items-center gap-3 hidden z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+        <span class="font-medium">コピーしました！</span>
+    </div>
+
+    <script>
+        // DOM要素
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('fileInput');
+        const dataUrlText = document.getElementById('dataUrlText');
+        const preview = document.getElementById('preview');
+        const resultDiv = document.getElementById('result');
+        const fileSizeSpan = document.getElementById('fileSize');
+        const themeToggle = document.getElementById('themeToggle');
+        const toast = document.getElementById('toast');
+
+        // --- テーマ切り替えロジック ---
+        function initTheme() {
+            // localStorageまたはシステム設定からテーマを取得
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // 初期化実行
+        initTheme();
+        themeToggle.addEventListener('click', toggleTheme);
+
+
+        // --- ファイル処理ロジック ---
+        
+        // クリックでファイル選択
+        dropArea.addEventListener('click', () => fileInput.click());
+
+        // ファイル変更時
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) handleFile(e.target.files[0]);
+        });
+
+        // ドラッグ&ドロップ
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropArea.classList.add('border-gray-400', 'dark:border-gray-500', 'bg-gray-50', 'dark:bg-[#2e2e31]');
+            dropArea.classList.add('scale-[1.01]');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('border-gray-400', 'dark:border-gray-500', 'bg-gray-50', 'dark:bg-[#2e2e31]');
+            dropArea.classList.remove('scale-[1.01]');
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('border-gray-400', 'dark:border-gray-500', 'bg-gray-50', 'dark:bg-[#2e2e31]');
+            dropArea.classList.remove('scale-[1.01]');
+            
+            if (e.dataTransfer.files.length > 0) {
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                showToast('画像ファイルを選択してください', true);
+                return;
+            }
+
+            // ファイルサイズ表示
+            const sizeInKb = (file.size / 1024).toFixed(1);
+            fileSizeSpan.textContent = `${sizeInKb} KB`;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const base64String = e.target.result;
+                dataUrlText.value = base64String;
+                preview.src = base64String;
+                
+                // 結果エリアを表示（アニメーション付き）
+                resultDiv.classList.remove('hidden');
+                
+                // スムーズにスクロール
+                setTimeout(() => {
+                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function copyText() {
+            if (!dataUrlText.value) return;
+            
+            dataUrlText.select();
+            
+            // クリップボードAPIを優先使用
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(dataUrlText.value).then(() => {
+                    showToast();
+                }).catch(() => {
+                    // 失敗時はexecCommandへフォールバック
+                    document.execCommand('copy');
+                    showToast();
+                });
+            } else {
+                document.execCommand('copy');
+                showToast();
+            }
+        }
+
+        function showToast(message = 'コピーしました！', isError = false) {
+            // 既存のトーストがあれば削除して再生成（アニメーションリセットのため）
+            const newToast = toast.cloneNode(true);
+            toast.parentNode.replaceChild(newToast, toast);
+            
+            const toastText = newToast.querySelector('span');
+            const toastIcon = newToast.querySelector('svg');
+            
+            toastText.textContent = message;
+            
+            // アイコンと色をリセット
+            toastIcon.innerHTML = '';
+            
+            if (isError) {
+                // エラーアイコン
+                toastIcon.innerHTML = '<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />';
+                newToast.classList.add('bg-red-500', 'text-white');
+                newToast.classList.remove('bg-light-accent', 'dark:bg-white', 'dark:text-black');
+            } else {
+                // チェックアイコン
+                toastIcon.innerHTML = '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />';
+                newToast.classList.remove('bg-red-500', 'text-white');
+                newToast.classList.add('bg-light-accent', 'dark:bg-white', 'text-white', 'dark:text-black');
+            }
+
+            newToast.classList.remove('hidden');
+            newToast.classList.add('toast');
+            
+            // アニメーション終了後にクラスを削除（再表示可能にするため）
+            setTimeout(() => {
+                newToast.classList.add('hidden');
+                newToast.classList.remove('toast');
+            }, 3000);
+            
+            // 参照更新
+            window.toast = newToast; 
+        }
+    </script>
+</body>
+</html>

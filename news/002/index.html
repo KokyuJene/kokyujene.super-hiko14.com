@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>パクリについて | ニュース | 新 高級ジェネ™ 公式サイト</title>
+  <meta name="description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta name="google-site-verification" content="9_dxQw3tiC3vs0ur8X4JLnf7vINwHN3m_qnyZO_3PDM" />
+
+<!-- OGP (Open Graph Protocol) -->
+  <meta property="og:title" content="新 高級ジェネ™ 公式サイト" />
+  <meta property="og:description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!" />
+  <meta property="og:image" content="https://kokyujene.github.io/ogp.webp /">
+  <meta property="og:url" content="https://kokyujene.github.io" />
+  <meta property="og:type" content="website" />
+
+<!-- X(Twitter)用 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@KokyuJene">
+  <meta name="twitter:title" content="新 高級ジェネ 公式サイト">
+  <meta name="twitter:description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta name="twitter:image" content="https://kokyujene.github.io/ogp.webp">
+
+<!-- ico, etc... -->
+  <link rel="icon" href="https://kokyujene.github.io/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://kokyujene.github.io/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="https://kokyujene.github.io/favicon.ico">
+  <link rel="stylesheet" href="https://kokyujene.github.io/css/style.css">
+  <link rel="shortcut icon" type="image/webp" href="https://kokyujene.github.io/favicon.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://kokyujene.github.io/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://kokyujene.github.io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="https://kokyujene.github.io/favicon-48x48.png">
+
+<!-- iOS Safari 用 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://kokyujene.github.io/apple-touch-icon.png">
+
+<!-- Android / Chrome PWA 用 -->
+  <link rel="manifest" href="https://kokyujene.github.io/site.webmanifest">
+
+<!-- レガシー互換 -->
+  <link rel="shortcut icon" href="https://kokyujene.github.io/favicon.ico">
+</head>
+
+<style>
+  .news-controls { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .news-controls button { margin:10px 10px;padding:6px 10px; border-radius:6px; border:1px solid #ddd; background:#fff8ec; cursor:pointer; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .dark .news-controls button { padding:6px 10px; border-radius:6px; border:1px solid #1a1a1a; background:#1b1200; cursor:pointer; color: #fff6e5; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .news-controls button.active { background:#ffaa00; color:#fff; border-color:#e08900; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .news-list { display:block; gap:14px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .news-item { padding:14px; border-radius:8px; background:#fff6e5; box-shadow:0 2px 8px rgba(0,0,0,0.06); margin-bottom:12px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .dark .news-item { padding:14px; border-radius:8px; background:#1b1200; box-shadow:0 2px 8px rgba(0,0,0,0.06); margin-bottom:12px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .news-meta { font-size:13px; color:#666; margin-bottom:8px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .news-category { font-weight:700; padding:2px 8px; border-radius:999px; margin-right:8px; font-size:12px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .緊急 { background:#ff6958; color:#fff; padding: 2px 10px; border-radius: 3px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .特大お知らせ { background:#ffc85b; color:#fff; padding: 2px 10px; border-radius: 3px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .ちょっとしたお知らせ { background:#3fec87; color:#fff; padding: 2px 10px; border-radius: 3px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .投票 { background:#888888; color:#fff; padding: 2px 10px; border-radius: 3px; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .controls-right { margin-left:auto; display:flex; gap:8px; align-items:center; font-family: 'Jost', 'zenkaku', sans-serif; }
+  .news-empty { color:#999; padding:20px; text-align:center; font-family: 'Jost', 'zenkaku', sans-serif; }
+
+.news-box {
+  padding: 20px 40px;
+  margin: 12px auto;
+  border-radius:16px;
+  background:#fff1d6;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom:12px;
+  font-family: 'Jost', 'zenkaku', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  align-items: center;
+  width: 1200px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dark .news-box {
+  background:#81580b;
+  color: #fff8eb;
+}
+
+.news-box:hover {
+  opacity: 0.8;
+}
+
+.news-title {
+  flex-grow: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.catego, .date {
+  font-size: 60%;
+}
+
+#news-list {
+    list-style: none;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#news-list li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#news-list li p,
+#news-list li a { 
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.catego {
+  float: left;
+}
+
+.date {
+  background: #ffd47d; padding: 2px 10px; border-radius: 3px; color: #fff;
+}
+
+.top-wall-news * {
+    position: relative;
+    z-index: 2; 
+}
+
+.top-wall-news {
+    position: relative;
+    background-image: url(../images/news_web.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-top: 180px;
+    padding-bottom: 300px;
+}
+
+.top-wall-news::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff8eb3a; 
+    z-index: 1; 
+}
+
+.dark .top-wall-news::before {
+    background-color: #110c023a; 
+}
+
+.color-7 span {
+  color: #aaaaaa;
+}
+
+.color-c span{
+  color: #ff5353;
+}
+
+b {
+  font-size: 125%;
+}
+
+.des {
+  font-size: 70%;
+}
+
+#imgOverlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+#imgOverlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+  animation: zoomIn 0.3s ease;
+}
+
+#closeOverlay {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.news-img {
+  cursor: zoom-in;
+  transition: opacity 0.3s;
+  border-radius:28px;
+}
+
+.news-img:hover {
+  opacity: 0.8;
+}
+
+img {
+  max-width: 500px;
+  max-height: auto;
+}
+
+@media (max-width: 768px) {
+    .me-box {
+        width: 500px;
+    }
+
+    .big {
+      font-size: 160%;
+    }
+
+    .top-wall {
+        padding-top: 120px;
+        padding-bottom: 280px;
+        background-position: center center;
+        background-attachment: scroll;
+    }
+
+    .news-box {
+      width: 500px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .me-box {
+        width: 300px;
+    }
+
+    .big {
+      font-size: 120%;
+    }
+
+    .top-wall {
+        padding-bottom: 220px;
+        background-position: center center;
+    }
+
+    .news-box {
+      width: 450px;
+    }
+}
+</style>
+
+<body>
+
+<div id="imgOverlay">
+  <span id="closeOverlay">&times;</span>
+  <img id="overlayImg" src="" alt="">
+</div>
+
+<div class="center">
+<section aria-hidden="true" id="hero">
+  <div id="heroWrapper">
+    <div id="heroInner"></div>
+  </div>
+</section>
+</div>
+
+<header id="mainHeader">
+  <div class="logo">
+    <a href="https://kokyujene.github.io">
+    <img src="https://kokyujene.github.io/images/icon.png" alt="LOGO">
+    </a>
+  </div>
+
+  <div class="list">
+    <ul>
+      <li><a href="https://kokyujene.github.io/">home</a></li>
+      <li><a href="https://kokyujene.github.io/members/">members</a></li>
+      <li><a href="https://kokyujene.github.io/rules/">rules</a></li>
+      <li><a href="https://kokyujene.github.io/news/">news</a></li>
+      <li>/</li>
+      <li><a href="https://kokyujene.github.io/about/">about</a></li>
+    </ul>
+  </div>
+
+</header>
+
+<div class="header-icon-menu" aria-hidden="false">
+  <button class="menu-icon" aria-label="メニューを開く" type="button">
+    <img src="https://kokyujene.github.io/images/menu.webp" alt="menu" />
+  </button>
+  <button class="close-icon" aria-label="メニューを閉じる" type="button">
+    <img src="https://kokyujene.github.io/images/close.webp" alt="close" />
+  </button>
+</div>
+
+  <nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <ul>
+      <li><a href="https://kokyujene.github.io/">home</a></li>
+      <li><a href="https://kokyujene.github.io/members/">members</a></li>
+      <li><a href="https://kokyujene.github.io/rules/">rules</a></li>
+      <li><a href="https://kokyujene.github.io/news/">news</a></li>
+      <li><div class="---"></div></li>
+      <li><a href="https://kokyujene.github.io/about/">about</a></li>
+    </ul>
+  </nav>
+
+<main>
+
+<div class="top-wall-news">
+<div class="top-box">
+  <div class="child">
+    <div class="title">
+    <h1>パクリについて | NEWS</h1>
+    </div>
+    <p class="sub-title">About Plagiarism | News</p>
+  </div>
+</div>
+</div>
+
+<div class="center">
+  <p>更新日:2025年9月7日</p>
+</div>
+
+<div class=my-box>
+    <h2>現状</h2>
+    <p>ホーム(トップページ)にも載せた通り、パクリワールドが存在しています。なので、入る前にするべきことをここにまとめます。<br>
+    <br><h3>入る前にやるべきこと</h3>
+      <br>1.ワールド名が「新 高級ジェネ™」になっているか
+      <br>2.ホストのユーザー名が、「Super Hiko14」もしくは、「KenNova758」(KenNova758はkento7587を同一人物で、名前が変更されました。)、「kazekiri900」のどれかになっているか
+      <br>3.ワールド名が変わる、「主が休みで、副主が~~~になる」などの情報が出ているか確認する
+      <br>4.それでも同じだった場合実際に入って確認<br>
+      <br><h3>お願い</h3>
+      <br>見かけ次第、新 高級ジェネ™の運営にオープンチャットや、メールアドレス、X、Youtube、お問い合わせフォームなどで報告し、そのパクったホストをできるのであればマインクラフト上やXbox上で通報することです。あと、<b>興味本位で入らないようにしましょう。</b></p>
+</div>
+
+<div class=my-box>
+    <h2>例(実際にあったもの)</h2>
+<div class="image-container">
+  <div class="center-image-left">
+		<img src="images/pakuri.webp" alt="example_pakuri" class="news-img">
+  </div>
+</div>
+<div class="image-container">
+  <div class="center-image-left">
+		<img src="images/pakuri3.webp" alt="example_pakuri" class="news-img">
+  </div>
+</div>
+<div class="center-text">
+<p>実際のパクリワールド</p>
+</div>
+<div class="image-container">
+  <div class="center-image-left">
+		<img src="images/pakuri2.webp" alt="example_pakuri" class="news-img">
+  </div>
+</div>
+<div class="center-text">
+<p>怪しいライン</p>
+</div>
+</div>
+    </div>
+</div>
+</div>
+
+<div class=my-box>
+    <h2>どのような違いか</h2>
+    <p>例や推測になってしまいますが、できるだけパクリワールドを再現しました。<br>
+    <br><h3>建造物などの違い</h3>
+      <br>まず、ロビーなどの建造物が「手抜き」というのがよくあります。
+<div class="image-container">
+  <div class="center-image-left">
+		<img src="images/lobby_example.webp" alt="example_pakuri" class="news-img">
+  </div>
+</div>
+<div class="center-text">
+<p>例</p>
+    <br><h3>ほかにも</h3>
+      <br>例えば、チャットなどが本家と違い、バニラになっていることが多数あります。
+<div class="image-container">
+  <div class="center-image-left">
+		<img src="images/chat_example.webp" alt="example_pakuri" class="news-img">
+  </div>
+</div>
+<div class="center-text">
+<p>例2</p>
+</div></p>
+</div>
+
+    <div class="center">
+    <a href="https://kokyujene.github.io/news/" class="my-button">記事一覧へ</a>
+    </div>
+
+</main>
+
+<footer>
+  <a href="#top" id="scrollTopButton">
+  <img src="https://kokyujene.github.io/images/title.webp">
+  </a>
+  <div class="footer-icon">
+  <img id="theme-icon" src="https://kokyujene.github.io/images/moon.webp" alt="テーマ切替" class="theme-toggle-icon">
+  </div>
+
+  <div class="footer-link">
+    <p>© 2025-<span id="year"></span> 高級ジェネ™ All rights reserved.</p>
+    <a href="https://kokyujene.github.io/privacypolicy" class="footer-link">プライバシーポリシー</a>
+    <a href="https://kokyujene.github.io/terms" class="footer-link">利用規約</a>
+    <a href="https://kokyujene.github.io/license" class="footer-link">ライセンス</a>
+    <a href="https://kokyujene.github.io/contact" class="footer-link">お問い合わせ</a>
+  </div>
+</footer>
+
+<script src="https://kokyujene.github.io/js/script.js">
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const imgs = document.querySelectorAll(".news-img");
+  const overlay = document.getElementById("imgOverlay");
+  const overlayImg = document.getElementById("overlayImg");
+  const closeBtn = document.getElementById("closeOverlay");
+
+  imgs.forEach(img => {
+    img.addEventListener("click", () => {
+      overlay.style.display = "flex";
+      overlayImg.src = img.src;
+    });
+  });
+
+  // 閉じる処理（×ボタン or オーバーレイクリック）
+  closeBtn.addEventListener("click", () => overlay.style.display = "none");
+  overlay.addEventListener("click", e => {
+    if (e.target === overlay) overlay.style.display = "none";
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuIcon = document.querySelector(".menu-icon");
+  const closeIcon = document.querySelector(".close-icon");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const headerIconMenu = document.querySelector(".header-icon-menu");
+
+  function openMenu() {
+    mobileMenu.classList.add("active");
+    document.body.classList.add("menu-open");
+    menuIcon.classList.add("hidden");
+    closeIcon.classList.add("show");
+    menuIcon.setAttribute("aria-hidden", "true");
+    closeIcon.setAttribute("aria-hidden", "false");
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove("active");
+    document.body.classList.remove("menu-open");
+    menuIcon.classList.remove("hidden");
+    closeIcon.classList.remove("show");
+    menuIcon.setAttribute("aria-hidden", "false");
+    closeIcon.setAttribute("aria-hidden", "true");
+  }
+
+  menuIcon.addEventListener("click", openMenu);
+  closeIcon.addEventListener("click", closeMenu);
+
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) closeMenu();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
+      closeMenu();
+    }
+  });
+});
+</script>
+
+<script>
+// ニュースデータを保持
+let allNews = [];
+let filteredNews = [];
+
+// ニュースデータの取得
+fetch("../news/news.json")
+  .then(res => res.json())
+  .then(data => {
+    allNews = data;
+    filteredNews = [...allNews];
+    renderNews();
+    setupEventListeners();
+  })
+  .catch(err => console.error("ニュース取得エラー:", err));
+
+// ニュースの表示
+function renderNews() {
+  const list = document.getElementById("news-list");
+  list.innerHTML = "";
+
+  if (filteredNews.length === 0) {
+    list.innerHTML = '<li class="news-empty">該当するニュースが見つかりませんでした</li>';
+    return;
+  }
+
+  // ソート順を取得
+  const sortOrder = document.getElementById("sortSelect").value;
+  const sorted = [...filteredNews];
+  
+  if (sortOrder === "new") {
+    sorted.reverse();
+  }
+
+  sorted.forEach(item => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <a href="${item.link}" class="news-box">
+        <div class="catego">
+          <span class="tag">
+            <div class="${item.category}">» ${item.category} «</div>
+          </span>
+        </div>
+        <div class="news-title">
+          ${item.title}
+          <div class="des">${item.description}</div>
+        </div>
+        <div class="date">${item.date}</div>
+      </a>
+    `;
+    list.appendChild(li);
+  });
+}
+
+// フィルター処理
+function applyFilters() {
+  const activeFilter = document.querySelector(".news-controls button.active").dataset.filter;
+  const searchQuery = document.getElementById("q").value.toLowerCase().trim();
+
+  filteredNews = allNews.filter(item => {
+    // カテゴリーフィルター
+    const categoryMatch = activeFilter === "all" || item.category === activeFilter;
+    
+    // 検索フィルター
+    const searchMatch = !searchQuery || 
+      item.title.toLowerCase().includes(searchQuery) || 
+      item.description.toLowerCase().includes(searchQuery);
+    
+    return categoryMatch && searchMatch;
+  });
+
+  renderNews();
+}
+
+// イベントリスナーの設定
+function setupEventListeners() {
+  // カテゴリーボタン
+  document.querySelectorAll(".news-controls button[data-filter]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".news-controls button[data-filter]").forEach(b => {
+        b.classList.remove("active");
+      });
+      btn.classList.add("active");
+      applyFilters();
+    });
+  });
+
+  // ソート順変更
+  document.getElementById("sortSelect").addEventListener("change", () => {
+    renderNews();
+  });
+
+  // 検索入力
+  let searchTimeout;
+  document.getElementById("q").addEventListener("input", () => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      applyFilters();
+    }, 300); // 300ms遅延でパフォーマンス向上
+  });
+}
+</script>
+
+</body>
+</html>

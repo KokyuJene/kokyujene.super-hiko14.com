@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | 新 高級ジェネ™ 公式サイト</title>
+  <meta name="description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta name="google-site-verification" content="9_dxQw3tiC3vs0ur8X4JLnf7vINwHN3m_qnyZO_3PDM" />
+
+<!-- OGP (Open Graph Protocol) -->
+  <meta property="og:title" content="新 高級ジェネ™ 公式サイト">
+  <meta property="og:description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta property="og:image" content="https://kokyujene.github.io/ogp.webp">
+  <meta property="og:url" content="https://kokyujene.github.io">
+  <meta property="og:type" content="website">
+
+<!-- X(Twitter)用 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Kokyujene">
+  <meta name="twitter:title" content="新 高級ジェネ 公式サイト">
+  <meta name="twitter:description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta name="twitter:image" content="https://kokyujene.github.io/ogp.webp">
+
+<!-- ico, etc... -->
+  <link rel="icon" href="https://kokyujene.github.io/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://kokyujene.github.io/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="https://kokyujene.github.io/favicon.ico">
+  <link rel="shortcut icon" type="image/webp" href="https://kokyujene.github.io/favicon.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://kokyujene.github.io/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://kokyujene.github.io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="https://kokyujene.github.io/favicon-48x48.png">
+
+<!-- iOS Safari 用 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://kokyujene.github.io/apple-touch-icon.png">
+
+<!-- Android / Chrome PWA 用 -->
+  <link rel="manifest" href="https://kokyujene.github.io/site.webmanifest">
+
+<!-- レガシー互換 -->
+  <link rel="shortcut icon" href="https://kokyujene.github.io/favicon.ico">
+</head>
+
+<style>
+@font-face {
+  font-family: 'Zen Kaku Gothic New';
+  src: url('https://kokyujene.github.io/fonts/ZenKakuGothicNew-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    font-family: 'Zen Kaku Gothic New', 'Meiryo', Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: black;
+    color: gray;
+    height: 100vh;
+    overflow-y: scroll;
+    position: relative;
+    text-align: center;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #a3a3a3;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+a.selected:hover::after,
+a:focus::after {
+  width: 100%;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 45vh 0;
+    /* スマホでのはみ出しを防ぐ */
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+a {
+    display: block;
+    font-size: 30px;
+    margin: 2rem 0;
+    color: gray;
+    text-decoration: none;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+a.selected {
+    color: white;
+    font-size: 40px;
+}
+
+h1 {
+  font-size: 40px;
+  /* スマホでの改行対応 */
+  word-wrap: break-word;
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+p {
+  font-size: 30px;
+  /* スマホでの改行対応を強化 */
+  word-wrap: break-word;
+  word-break: break-all;
+  line-height: 1.4;
+  max-width: 100%;
+  /* 英数字の連続も適切に改行 */
+  overflow-wrap: break-word;
+}
+
+img {
+  width: 800px;
+  height: auto;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 20vh 15px;
+  }
+  
+  a {
+    font-size: 18px;
+    /* スマホでもリンクが途切れないように */
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  a.selected {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 1rem 0;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    /* より細かい改行制御 */
+    word-spacing: normal;
+  }
+}
+
+/* より小さいスマホ対応 */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 15vh 10px;
+  }
+  
+  h1 {
+    font-size: 20px;
+  }
+  
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  a {
+    font-size: 16px;
+  }
+
+  a.selected {
+    font-size: 20px;
+  }
+
+  img {
+  width: 400px;
+  height: auto;
+}
+}
+</style>
+
+<body>
+  <div class="container">
+    <h1>高級ジェネって?/What's a KokyuJene?</h1>
+    <p>「 新 高級ジェネ™ 」とは。<br><br><br>Super Hiko14がホストを運営し、KenNova758とkazekiri900が副ホストを運営している高級なサーバー!<br><br>gen4では2300人ほどの総参加人数,gen5では1600人...!!かなり人気(...だと信じたいです)。<br><br>高級感に包まれていて、かなりやりこみ要素が詰め込まれています!<br><br>VIP,VIP+,MVP,MVP+,PREMIUM,PREMIUM+,PREMIUM,PLATINUM+,MASTER,MASTER+などそれに実績も!!<br><br>それに加え、美しい建築やPvP,プレステージなど飽きない仕組みがたっくさん詰め込まれています!!<br><br></p>
+    <a href="../index.html">戻る/Back</a>
+  </div>
+
+<script>
+  const links = document.querySelectorAll('.container a');
+
+  function updateSelection() {
+    const centerY = window.innerHeight / 2;
+    let closest = null;
+    let closestDist = Infinity;
+
+    links.forEach(link => {
+      const rect = link.getBoundingClientRect();
+      const linkCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(centerY - linkCenter);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closest = link;
+      }
+    });
+
+    links.forEach(link => link.classList.remove('selected'));
+    if (closest) closest.classList.add('selected');
+  }
+
+  window.addEventListener('scroll', updateSelection);
+  window.addEventListener('resize', updateSelection);
+  updateSelection();
+</script>
+</body>
+</html>

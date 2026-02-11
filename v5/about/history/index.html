@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | 新 高級ジェネ™ 公式サイト</title>
+  <meta name="description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta name="google-site-verification" content="9_dxQw3tiC3vs0ur8X4JLnf7vINwHN3m_qnyZO_3PDM" />
+
+<!-- OGP (Open Graph Protocol) -->
+  <meta property="og:title" content="新 高級ジェネ™ 公式サイト">
+  <meta property="og:description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta property="og:image" content="https://kokyujene.github.io/ogp.webp">
+  <meta property="og:url" content="https://kokyujene.github.io">
+  <meta property="og:type" content="website">
+
+<!-- X(Twitter)用 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Kokyujene">
+  <meta name="twitter:title" content="新 高級ジェネ 公式サイト">
+  <meta name="twitter:description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta name="twitter:image" content="https://kokyujene.github.io/ogp.webp">
+
+<!-- ico, etc... -->
+  <link rel="icon" href="https://kokyujene.github.io/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://kokyujene.github.io/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="https://kokyujene.github.io/favicon.ico">
+  <link rel="shortcut icon" type="image/webp" href="https://kokyujene.github.io/favicon.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://kokyujene.github.io/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://kokyujene.github.io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="https://kokyujene.github.io/favicon-48x48.png">
+
+<!-- iOS Safari 用 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://kokyujene.github.io/apple-touch-icon.png">
+
+<!-- Android / Chrome PWA 用 -->
+  <link rel="manifest" href="https://kokyujene.github.io/site.webmanifest">
+
+<!-- レガシー互換 -->
+  <link rel="shortcut icon" href="https://kokyujene.github.io/favicon.ico">
+</head>
+
+<style>
+@font-face {
+  font-family: 'Zen Kaku Gothic New';
+  src: url('https://kokyujene.github.io/fonts/ZenKakuGothicNew-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    font-family: 'Zen Kaku Gothic New', 'Meiryo', Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: black;
+    color: gray;
+    height: 100vh;
+    overflow-y: scroll;
+    position: relative;
+    text-align: center;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;              /* リンクの間隔 */
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #a3a3a3;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+a.selected:hover::after,
+a:focus::after {
+  width: 100%;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 45vh 0;
+}
+
+a {
+    display: block;
+    font-size: 30px;
+    margin: 2rem 0;
+    color: gray;
+    text-decoration: none;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+a.selected {
+    color: white;
+    font-size: 40px;
+}
+
+h1{
+  font-size: 40px;
+}
+
+p {
+  font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+a {
+    font-size: 20px;
+}
+
+a.selected {
+    font-size: 30px;
+}
+
+h1{
+  font-size: 20px;
+}
+}
+
+</style>
+
+<body>
+  <div class="container">
+    <h1>歴史/History</h1>
+    <a href="gen1">gen1</a>
+    <a href="gen2">gen2</a>
+    <a href="gen3">gen3</a>
+    <a href="gen4">gen4</a>
+    <a href="gen5">gen5</a>
+    <a href="gen6">gen6</a>
+    <a href="../index.html">戻る/Back</a>
+  </div>
+
+<script>
+  const links = document.querySelectorAll('.container a');
+
+  function updateSelection() {
+    const centerY = window.innerHeight / 2;
+    let closest = null;
+    let closestDist = Infinity;
+
+    links.forEach(link => {
+      const rect = link.getBoundingClientRect();
+      const linkCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(centerY - linkCenter);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closest = link;
+      }
+    });
+
+    links.forEach(link => link.classList.remove('selected'));
+    if (closest) closest.classList.add('selected');
+  }
+
+  window.addEventListener('scroll', updateSelection);
+  window.addEventListener('resize', updateSelection);
+  updateSelection();
+</script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABOUT - Server | 新 高級ジェネ™ 公式サイト</title>
+  <meta name="description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta name="google-site-verification" content="9_dxQw3tiC3vs0ur8X4JLnf7vINwHN3m_qnyZO_3PDM" />
+
+<!-- OGP (Open Graph Protocol) -->
+  <meta property="og:title" content="新 高級ジェネ™ 公式サイト" />
+  <meta property="og:description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!" />
+  <meta property="og:image" content="https://kokyujene.github.io/ogp.webp" />
+  <meta property="og:url" content="https://kokyujene.github.io" />
+  <meta property="og:type" content="website" />
+
+<!-- X(Twitter)用 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@KokyuJene">
+  <meta name="twitter:title" content="新 高級ジェネ 公式サイト">
+  <meta name="twitter:description" content="Super Hiko14がホストを運営するマインクラフト統合版サーバー『新 高級ジェネ』の公式サイト! 高級ジェネの運営メンバーやルールなどが記述されているページもあり、最新情報をお届けするニュースや、お問い合わせページ、Youtube、X、オープンチャット、Discordなどのリンクも記載!">
+  <meta name="twitter:image" content="https://kokyujene.github.io/ogp.webp">
+
+<!-- ico, etc... -->
+  <link rel="icon" href="https://kokyujene.github.io/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://kokyujene.github.io/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="https://kokyujene.github.io/favicon.ico">
+  <link rel="stylesheet" href="https://kokyujene.github.io/css/style.css">
+  <link rel="stylesheet" href="../about.css">
+  <link rel="shortcut icon" type="image/webp" href="https://kokyujene.github.io/favicon.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://kokyujene.github.io/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://kokyujene.github.io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="https://kokyujene.github.io/favicon-48x48.png">
+
+<!-- iOS Safari 用 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://kokyujene.github.io/apple-touch-icon.png">
+
+<!-- Android / Chrome PWA 用 -->
+  <link rel="manifest" href="https://kokyujene.github.io/site.webmanifest">
+
+<!-- レガシー互換 -->
+  <link rel="shortcut icon" href="https://kokyujene.github.io/favicon.ico">
+</head>
+
+<style>
+.top-wall-about * {
+    position: relative;
+    z-index: 2; 
+}
+
+.top-wall-about {
+    position: relative;
+    background-image: url(../about.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-top: 180px;
+    padding-bottom: 300px;
+}
+
+.top-wall-about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0e0e0e88;
+    z-index: 1; 
+}
+
+.dark .top-wall-about::before {
+  background-color: #0e0e0e88; 
+}
+
+.color-7 span {
+  color: #aaaaaa;
+}
+
+.color-c span {
+  color: #ff5353;
+}
+
+.link a {
+  display: inline-block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+  letter-spacing: 0.1em;
+}
+
+.link span{
+  text-transform: uppercase;
+  font-size: 180%;
+  letter-spacing: 0.2em;
+}
+
+@media (max-width: 768px) {
+    .me-box {
+        width: 500px;
+    }
+
+    .top-wall {
+        padding-top: 120px;
+        padding-bottom: 280px;
+        background-position: center center;
+        background-attachment: scroll;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .me-box {
+        width: 300px;
+    }
+
+    .top-wall {
+        padding-bottom: 220px;
+        background-position: center center;
+    }
+}
+</style>
+
+<body>
+
+<div class="center">
+<section aria-hidden="true" id="hero">
+  <div id="heroWrapper">
+    <div id="heroInner"></div>
+  </div>
+</section>
+</div>
+
+<header id="mainHeader">
+  <div class="logo">
+    <a href="https://kokyujene.github.io">
+    <img src="https://kokyujene.github.io/images/icon.png" alt="LOGO">
+    </a>
+  </div>
+
+  <div class="list">
+    <ul>
+      <li><a href="https://kokyujene.github.io/">home</a></li>
+      <li><a href="https://kokyujene.github.io/members/">members</a></li>
+      <li><a href="https://kokyujene.github.io/rules/">rules</a></li>
+      <li><a href="https://kokyujene.github.io/news/">news</a></li>
+      <li>/</li>
+      <li><a href="https://kokyujene.github.io/about/">about</a></li>
+    </ul>
+  </div>
+
+</header>
+
+<div class="header-icon-menu" aria-hidden="false">
+  <button class="menu-icon" aria-label="メニューを開く" type="button">
+    <img src="https://kokyujene.github.io/images/menu.webp" alt="menu" />
+  </button>
+  <button class="close-icon" aria-label="メニューを閉じる" type="button">
+    <img src="https://kokyujene.github.io/images/close.webp" alt="close" />
+  </button>
+</div>
+
+  <nav id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <ul>
+      <li><a href="https://kokyujene.github.io/">home</a></li>
+      <li><a href="https://kokyujene.github.io/members/">members</a></li>
+      <li><a href="https://kokyujene.github.io/rules/">rules</a></li>
+      <li><a href="https://kokyujene.github.io/news/">news</a></li>
+      <li><div class="---"></div></li>
+      <li><a href="https://kokyujene.github.io/about/">about</a></li>
+    </ul>
+  </nav>
+
+<main>
+
+<div class="top-wall-about">
+<div class="top-box">
+  <div class="child">
+    <div class="title">
+    <h1>ABOUT SERVER</h1>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="center">
+
+
+<div class="tab-menu">
+  <button class="tab-item active" onclick="switchTab(this, 0)">高級ジェネってなんぞ?</button>
+  <button class="tab-item" onclick="switchTab(this, 1)">歴史</button>
+  <button class="tab-item" onclick="switchTab(this, 2)">リンク</button>
+  
+  <div class="tab-indicator"></div>
+</div>
+
+<div class="content-area">
+
+  <div class="tab-content active">
+    <h1>高級ジェネとは</h1>
+    <p>
+      高級ジェネとは@“Super Hiko14” がサーバーホストを務めるジェネレーターです。このジェネレーターにはもちろんジェネレーター機能に加えてランク機能と言うものがあります!お金を貯めてランクアップ!時間が溶けます!色んなジャンルのPvPがあったり建築場もあります!プレイヤーと楽しく交流しましょう。そして有名なのはKento chickenが売っていることです。是非皆さん参加してください!<br>by epipi QwQ
+    </p>
+  </div>
+
+<div class="tab-content">
+
+<div class="listkeisiki">
+  
+  <div class="accordion-group">
+    <h3 class="toggle-head">
+      Gen1 | 建国ジェネレーター <span class="yajirusi">▾</span>
+    </h3>
+    <div class="naiyou-container">
+      <div class="naiyou">
+        <div class="quote-style">
+          gen1とは、Super Hiok14が最初の作ったジェネレーターであり、yaenTVのジェネレーターで運営になり、その知識を糧に作成されたジェネレーター。<br><br>運営<br>Owner:Super Hiko14<br>OPs:sebinkyo, me_youtube, miochan03
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <h3 class="toggle-head">
+      Gen2 | ジェネレーター,PVP,SHOP,建国v4.0  <span class="yajirusi">▾</span>
+    </h3>
+    <div class="naiyou-container">
+      <div class="naiyou">
+        <div class="quote-style">
+          gen2とは、Super Hiok14が2個目に作ったジェネレーターで、このサーバー故でSuper Hiko14という名前が少し広がった。<br>かなり良い出来だと...思う...。たぶん。<br><br>運営<br>Owner:Super Hiko14<br>OPs:yeanTV, kento7587(KenNova758), sdk, ぜん, ふろいくyama, れいか, blockBOY1999911, RandomOrc749464, yuka_1127, miochan03
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <h3 class="toggle-head">
+      Gen3 | GEN SHOP PVP  <span class="yajirusi">▾</span>
+    </h3>
+    <div class="naiyou-container">
+      <div class="naiyou">
+        <div class="quote-style">
+          ゴミ。説明するまでもない失敗作だ。リリース当時、かなりの機能不足/改悪化によってこれに乗り換えたとたん「＊しかし誰も来なかった」状態が続いたため、急遽Gen2に戻された悲しいジェネレーター。運営リセットとかいう最悪のシステムもあったしな。<br><br>運営<br>Owner:Super Hiko14
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <h3 class="toggle-head">
+      Gen4 | 新\-高級ジェネ-/  <span class="yajirusi">▾</span>
+    </h3>
+    <div class="naiyou-container">
+      <div class="naiyou">
+        <div class="quote-style">
+          黄金期。このジェネレーターで初めて「高級ジェネ」という名前ができた。<br>初期の名前案は豪華ジェネだったが、語呂悪...高級みたいだから高級ジェネでよくね??ﾖｯｼ!ｷｯﾏﾘｨ!<small>(by kento)</small><br>riirie72がジェネを更地にして、<br>potaが性的に不適切な言葉をいろんな人に言ったり...。<br>MintoriGameDaY0が逆切れして晒すとか行ったり...。(その後晒さなかったwwwwww)<br>sekoiyaが宣伝5連続してBANされたり...。<br>色々神だったけどその反面、問題がまあまあ多かったジェネだ。<br><br>運営<br>覚えてないお
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <h3 class="toggle-head">
+      Gen5 | 新 高級ジェネ  <span class="yajirusi">▾</span>
+    </h3>
+    <div class="naiyou-container">
+      <div class="naiyou">
+        <div class="quote-style">
+          正直、人気はGen4と比べるとまあまあ下がった...が機能性がなかなかに多いジェネだった。そのためバカ重い。<br>ちょうどSwitch2が発売されるやんと思い、「機能を足しまくって重くしても問題ないよね」と思ってたらSwitch2は高みの見物、Switch勢みんなが手に入れている...わけがなく、なんなら僕のMinecraftは落ちるわで散々だった。<br>Gen4の荒らしの散々インパクトには劣るが、色々なことがあった。<br>大きいことといえばYoshimasaぐらいだろうか?<br><br>運営<br><a href="https://kokyujene.github.io/members">公式サイト→MEMBERS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-group">
+    <h3 class="toggle-head">
+      Gen6 | 新 高級ジェネ™ 3  <span class="yajirusi">▾</span>
+    </h3>
+    <div class="naiyou-container">
+      <div class="naiyou">
+        <div class="quote-style">
+          今現在(2026.1.25更新)最新バージョンのジェネレーターだ。だんだんと成長していっている。もうすぐでGen5の功績を超えそうな勢いで成長していっている期待大のサーバーだ。<br>Switch2は高みの見物/Windowsでも落ちるという反省を生かし、軽く、多機能、楽しいをコンセプトに今もなお、アップデートが続いている...。<br>今のところは大きな事件などは起きていない。<br>このジェネレーターの公開までの経緯に至っては、ほかのジェネレーターは行き当たりばったり見たいな感じだったが、このジェネレーターではしっかり念密に計画を練り、無事10.1に正式リリースを迎えたジェネレーターだ。<br>またこのジェネレーターがリリースされてからDiscordサーバーやLINEOpenChatが本格化してきている(...はず)。<br><br>運営<br><a href="https://kokyujene.github.io/members">公式サイト→MEMBERS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="tab-content">
+<div class="listkeisiki">
+  <h3>Youtube Channel</h3>
+  <div class="sns-row">
+    高級ジェネ | <a href="https://youtube.com/@super-hiko14" class="yt">@KokyuJene</a>
+  </div>
+
+  <h3>Twitter(Old:X)</h3>
+  <div class="sns-row">
+    高級ジェネ | <a href="https://twitter.com/@KokyuJene" class="tw">@KokyuJene</a>
+  </div>
+
+  <h3>Note</h3>
+  <div class="sns-row">
+    高級ジェネ | <a href="https://note.com/kokyujene" class="nt">@kokyujene</a>
+  </div>
+
+  <h3>Discord</h3>
+  <div class="sns-row">
+    <a href="https://steamcommunity.com/id/super-hiko14/" class="ds">高級ジェネ</a>
+  </div>
+
+  <h3>OpenChat</h3>
+  <div class="sns-row">
+    <a href="https://line.me/ti/g2/NUmh2HQ_JhLH9x7VNaR1XAYqIePaEeziz5HClw" class="ln">高級ジェネ</a>
+  </div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+  <a href="#top" id="scrollTopButton">
+  <img src="https://kokyujene.github.io/images/title.webp">
+  </a>
+  <div class="footer-icon">
+  <img id="theme-icon" src="https://kokyujene.github.io/images/moon.webp" alt="テーマ切替" class="theme-toggle-icon">
+  </div>
+
+  <div class="footer-link">
+    <p>© 2025-<span id="year"></span> 高級ジェネ™ All rights reserved.</p>
+    <a href="https://kokyujene.github.io/privacypolicy" class="footer-link">プライバシーポリシー</a>
+    <a href="https://kokyujene.github.io/terms" class="footer-link">利用規約</a>
+    <a href="https://kokyujene.github.io/license" class="footer-link">ライセンス</a>
+    <a href="https://kokyujene.github.io/contact" class="footer-link">お問い合わせ</a>
+  </div>
+</footer>
+
+<script src="https://kokyujene.github.io/js/script.js">
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuIcon = document.querySelector(".menu-icon");
+  const closeIcon = document.querySelector(".close-icon");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const headerIconMenu = document.querySelector(".header-icon-menu");
+
+  function openMenu() {
+    mobileMenu.classList.add("active");
+    document.body.classList.add("menu-open");
+    menuIcon.classList.add("hidden");
+    closeIcon.classList.add("show");
+    menuIcon.setAttribute("aria-hidden", "true");
+    closeIcon.setAttribute("aria-hidden", "false");
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove("active");
+    document.body.classList.remove("menu-open");
+    menuIcon.classList.remove("hidden");
+    closeIcon.classList.remove("show");
+    menuIcon.setAttribute("aria-hidden", "false");
+    closeIcon.setAttribute("aria-hidden", "true");
+  }
+
+  menuIcon.addEventListener("click", openMenu);
+  closeIcon.addEventListener("click", closeMenu);
+
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) closeMenu();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
+      closeMenu();
+    }
+  });
+});
+</script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="../about.js"></script>
+
+</body>
+</html>
