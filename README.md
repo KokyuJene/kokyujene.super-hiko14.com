@@ -46,11 +46,11 @@
 
 ## 最近のニュース
 
-**[パクリについて - 注意 | ニュース](https://kokyujene.github.io/news/002/)** - 08/31
+**[新 高級ジェネ™ 3 作った方がいい? - 投票 | NEWS](https://kokyujene.github.io/news/003/)** - 09.14
 
-**[新 高級ジェネ™ 3 作った方がいい? - 投票 | ニュース](https://kokyujene.github.io/news/003/)** - 09/14
+**[予告 | NEWS](https://kokyujene.github.io/news/004/)** - 09.20
 
-**[予告 | ニュース](https://kokyujene.github.io/news/004/)** - 09/20
+**[パクリ多発PART2 | NEWS](https://kokyujene.github.io/news/005/)** - 12.20
 
 ## 関連リンク
 
@@ -60,4 +60,4 @@
 * **[Discord](https://discord.com/invite/ukFH4NtDG6)**
 
 ---
-© 2025 KokyuJene™ All rights reserved.
+© 2025-2026 高級ジェネ™ All rights reserved.
