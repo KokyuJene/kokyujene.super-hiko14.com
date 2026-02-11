@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 隠し画像のスポーン機能
   function spawnHiddenImage() {
     const img = document.createElement('img');
-    img.src = 'https://kokyujene.github.io/images/hidden.webp';
+    img.src = 'https://kokyujene.super-hiko14.com/images/hidden.webp';
     img.className = 'hidden-image';
     img.style.position = 'fixed';
     img.style.zIndex = '9999';
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // クリック時の処理
     img.addEventListener('click', () => {
-      const sound = new Audio('https://kokyujene.github.io/sounds/success.ogg');
+      const sound = new Audio('https://kokyujene.super-hiko14.com/sounds/success.ogg');
       sound.play().catch(err => console.log('音声再生エラー:', err));
 
       // アニメーション
@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function applyTheme(isDark) {
       document.documentElement.classList.toggle('dark', isDark);
       themeIcon.src = isDark 
-        ? 'https://kokyujene.github.io/images/sun.webp' 
-        : 'https://kokyujene.github.io/images/moon.webp';
+        ? 'https://kokyujene.super-hiko14.com/images/sun.webp' 
+        : 'https://kokyujene.super-hiko14.com/images/moon.webp';
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
@@ -183,6 +183,6 @@ function goBack() {
   if (document.referrer.includes("kokyujene.github.io")) {
     history.back();
   } else {
-    window.location.href = "https://kokyujene.github.io/";
+    window.location.href = "https://kokyujene.super-hiko14.com/";
   }
 }

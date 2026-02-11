@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Root -->
   <url>
-    <loc>https://kokyujene.github.io/</loc>
+    <loc>https://kokyujene.super-hiko14.com/</loc>
     <lastmod>2025-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
@@ -10,7 +10,7 @@
 
   <!-- Members index -->
   <url>
-    <loc>https://kokyujene.github.io/members/</loc>
+    <loc>https://kokyujene.super-hiko14.com/members/</loc>
     <lastmod>2025-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -18,21 +18,21 @@
 
   <!-- Member pages -->
   <url>
-    <loc>https://kokyujene.github.io/members/super-hiko14/</loc>
+    <loc>https://kokyujene.super-hiko14.com/members/super-hiko14/</loc>
     <lastmod>2025-11-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.64</priority>
   </url>
 
   <url>
-    <loc>https://kokyujene.github.io/members/kennova758/</loc>
+    <loc>https://kokyujene.super-hiko14.com/members/kennova758/</loc>
     <lastmod>2025-11-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.64</priority>
   </url>
 
   <url>
-    <loc>https://kokyujene.github.io/members/kazekiri900/</loc>
+    <loc>https://kokyujene.super-hiko14.com/members/kazekiri900/</loc>
     <lastmod>2025-11-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.64</priority>
@@ -40,7 +40,7 @@
 
   <!-- Rules -->
   <url>
-    <loc>https://kokyujene.github.io/rules/</loc>
+    <loc>https://kokyujene.super-hiko14.com/rules/</loc>
     <lastmod>2025-11-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.70</priority>
@@ -48,7 +48,7 @@
 
   <!-- News -->
   <url>
-    <loc>https://kokyujene.github.io/news/</loc>
+    <loc>https://kokyujene.super-hiko14.com/news/</loc>
     <lastmod>2025-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>

@@ -1,14 +1,14 @@
 # 新 高級ジェネ 公式サイト
 
-![image](https://kokyujene.github.io/ogp.webp)
+![image](https://kokyujene.super-hiko14.com/ogp.webp)
 
 # ようこそ!
 
-ここでは、**[新 高級ジェネ 公式サイト](https://kokyujene.github.io/) の詳細**や、その**サーバーの関連リンクなどが記述されています!**
+ここでは、**[新 高級ジェネ 公式サイト](https://kokyujene.super-hiko14.com/) の詳細**や、その**サーバーの関連リンクなどが記述されています!**
 
 ## サーバーについて
 
-**『新 高級ジェネ』**は、**[Super Hiko14](https://kokyujene.github.io/members/super-hiko14/) がホストを運営する、すべてが高級で特別な体験ができるマインクラフト統合版サーバーです。**
+**『新 高級ジェネ』**は、**[Super Hiko14](https://kokyujene.super-hiko14.com/members/super-hiko14/) がホストを運営する、すべてが高級で特別な体験ができるマインクラフト統合版サーバーです。**
 
 ## サイトの概要
 
@@ -26,31 +26,31 @@
 
 以下の**URLから公式サイトにアクセスできます。**
 
-**[新 高級ジェネ 公式サイト](https://kokyujene.github.io/)**
+**[新 高級ジェネ 公式サイト](https://kokyujene.super-hiko14.com/)**
 
-**[メンバー紹介 | 新 高級ジェネ 公式サイト](https://kokyujene.github.io/members/)**
+**[メンバー紹介 | 新 高級ジェネ 公式サイト](https://kokyujene.super-hiko14.com/members/)**
 
-**[サーバールール | 新 高級ジェネ 公式サイト](https://kokyujene.github.io/rules/)**
+**[サーバールール | 新 高級ジェネ 公式サイト](https://kokyujene.super-hiko14.com/rules/)**
 
-**[ニュース | 新 高級ジェネ 公式サイト](https://kokyujene.github.io/news/)**
+**[ニュース | 新 高級ジェネ 公式サイト](https://kokyujene.super-hiko14.com/news/)**
 
-**[お問い合わせ | 新 高級ジェネ 公式サイト](https://kokyujene.github.io/contact/)**
+**[お問い合わせ | 新 高級ジェネ 公式サイト](https://kokyujene.super-hiko14.com/contact/)**
 
 ## 運営メンバー(特設ページ)
 
-**[Super Hiko14](https://kokyujene.github.io/members/super-hiko14/)** - Owner
+**[Super Hiko14](https://kokyujene.super-hiko14.com/members/super-hiko14/)** - Owner
 
-**[KenNova758](https://kokyujene.github.io/members/kennova758/)** - Deputy Owner
+**[KenNova758](https://kokyujene.super-hiko14.com/members/kennova758/)** - Deputy Owner
 
-**[kazekiri900](https://kokyujene.github.io/members/kazekiri900/)** - Deputy Owner
+**[kazekiri900](https://kokyujene.super-hiko14.com/members/kazekiri900/)** - Deputy Owner
 
 ## 最近のニュース
 
-**[新 高級ジェネ™ 3 作った方がいい? - 投票 | NEWS](https://kokyujene.github.io/news/003/)** - 09.14
+**[パクリについて - 注意 | ニュース](https://kokyujene.super-hiko14.com/news/002/)** - 08/31
 
-**[予告 | NEWS](https://kokyujene.github.io/news/004/)** - 09.20
+**[新 高級ジェネ™ 3 作った方がいい? - 投票 | ニュース](https://kokyujene.super-hiko14.com/news/003/)** - 09/14
 
-**[パクリ多発PART2 | NEWS](https://kokyujene.github.io/news/005/)** - 12.20
+**[予告 | ニュース](https://kokyujene.super-hiko14.com/news/004/)** - 09/20
 
 ## 関連リンク
 
@@ -60,4 +60,4 @@
 * **[Discord](https://discord.com/invite/ukFH4NtDG6)**
 
 ---
-© 2025-2026 高級ジェネ™ All rights reserved.
+© 2025 KokyuJene™ All rights reserved.
