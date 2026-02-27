@@ -75,7 +75,8 @@ a {
 }
 
 /* 下線は擬似要素で作り、中央から左右に伸ばすアニメーションにする */
-a::after {
+/* .news-box（カード形リンク）は除外 */
+a:not(.footer-nav a):not(.news-box)::before {
     content: "";
     position: absolute;
     left: 0;
@@ -89,15 +90,37 @@ a::after {
     pointer-events: none;
 }
 
-a:hover::after,
-a:focus::after,
-a:focus-visible::after {
+a:not(.footer-nav a):not(.news-box):hover::before,
+a:not(.footer-nav a):not(.news-box):focus::before,
+a:not(.footer-nav a):not(.news-box):focus-visible::before {
     transform: scaleX(1);
 }
 
 a:focus,
 a:focus-visible {
     outline: none;
+}
+
+/* 外部リンク用アイコン（kokyujene.super-hiko14.com 以外へのリンク。.news-boxは除外） */
+a[href^="http"]:not([href*="kokyujene.super-hiko14.com"]):not(.news-box)::after {
+    content: "";
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    margin-left: 0.25em;
+    vertical-align: middle;
+    background-color: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    /* 下線アニメーションの影響を受けないように */
+    transform: none !important; 
+    position: static;
+    background-image: none;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -736,14 +759,17 @@ p {
     align-items: unset;
 }
 
+/* =====================
+   Footer
+   ===================== */
 footer {
-    height: auto;
-    width: auto;
     background-color: #ffe6b5;
-    padding: 10px; 
-    align-items: flex-start;
-    margin: 0 auto;
+    padding: 20px 32px 16px;
     width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .dark footer {
@@ -751,64 +777,87 @@ footer {
 }
 
 footer p {
-    font-size: 15px;
+    font-size: 14px;
+    margin: 0;
 }
 
-footer img {
-    float: left;
-    width: 400px;
-    height: auto;
-}
-
-footer li {
-    float: none;
-    text-align: right;
-    padding:20px;
-    list-style: none;
-    display: block;
-}
-
-.footer-link-container {
-  margin: 20px 0;
-}
-
-.footer-link {
-    margin: 20px 0;
-}
-
-/* Footer separators implemented via container gap + pseudo-elements.
-   This prevents the underline or hover effect from visually extending to
-   the original border seam. */
-footer > .footer-link {
+/* 上段: ロゴ（左）+ テーマアイコン（右） */
+.footer-top {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    gap: 12px;
+}
+
+.footer-top a img {
+    width: 140px;
+    height: auto;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.footer-top a:hover img {
+    opacity: 1;
+}
+
+/* 下段: コピーライト（左）+ ナビリンク（右） */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.dark .footer-bottom {
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+/* フッターナビゲーション */
+.footer-nav {
+    display: flex;
+    align-items: center;
     flex-wrap: wrap;
 }
 
-footer > .footer-link a {
-    padding: 6px 10px;
+.footer-nav a {
+    padding: 4px 10px;
     text-decoration: none;
     color: inherit;
     display: inline-block;
     position: relative;
+    font-size: 14px;
 }
 
-/* separator line between items using ::before on each item except the first */
-footer > .footer-link a::before {
+/* 区切り線（最初のリンク以外の左に縦線） */
+.footer-nav a::before {
     content: "";
     position: absolute;
-    left: -6px;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 1px;
-    height: 18px;
+    height: 14px;
     background: currentColor;
-    opacity: 0.28;
+    opacity: 0.3;
 }
 
-footer > .footer-link a:first-child::before { display: none; }
+.footer-nav a:first-child::before { display: none; }
+
+@media screen and (max-width: 580px) {
+    footer {
+        padding: 16px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-nav {
+        justify-content: flex-start;
+    }
+}
 
 .theme-toggle-icon {
     float: left;
@@ -1092,4 +1141,419 @@ footer > .footer-link a:first-child::before { display: none; }
   box-shadow: 2px 2px 0 var(--tw-text-shadow-color, #777777);
   width: 150px;
   margin: 10px auto;
+}
+
+/* =====================
+   Hero (index.html)
+   ===================== */
+#heroWrapper {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    z-index: 2000;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+#heroInner {
+    width: 100vw;
+    height: 100vh;
+    background: url("https://kokyujene.super-hiko14.com/images/wall_back.webp") center/cover no-repeat;
+    border-radius: 0;
+    will-change: transform, border-radius, width, height;
+}
+
+.logo-slot {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+.logo-slot img#slotImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.welcome-text {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    font-size: 50px;
+}
+
+/* =====================
+   Scrolling text ticker
+   ===================== */
+.scroll-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.scroll-text {
+    display: inline-block;
+    animation: scrollTicker 20s linear infinite;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #130d00;
+    letter-spacing: 0.05em;
+}
+
+.dark .scroll-text {
+    color: #000;
+    background-color: #fff6e2;
+}
+
+.scroll-text span {
+    margin: 0 40px;
+}
+
+@keyframes scrollTicker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* =====================
+   Visitor counter
+   ===================== */
+.visitor-counter {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #fff1d6;
+    border-radius: 16px;
+    text-align: center;
+    min-width: 500px;
+    max-width: 600px;
+}
+
+.dark .visitor-counter {
+    background-color: #362400;
+}
+
+/* =====================
+   News box (共通カード)
+   ===================== */
+#news-list {
+    list-style: none;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    gap: 12px;
+}
+
+#news-list li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.news-box {
+    display: grid;
+    grid-template-areas:
+        "catego date"
+        "title  title"
+        "des    des";
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+    padding: 18px 24px;
+    border-radius: 14px;
+    width: 100%;
+    background: #fffaf0;
+    color: #1d0e00;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    font-size: 1rem;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 187, 50, 0.25);
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 左アクセントライン */
+.news-box::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #ffbb32;
+    border-radius: 14px 0 0 14px;
+    /* 下線アニメーション上書き */
+    transform: none !important;
+    height: 100% !important;
+    opacity: 1 !important;
+    transition: none;
+    pointer-events: none;
+}
+
+.dark .news-box {
+    background: #1e1200;
+    color: #fff8eb;
+    border-color: rgba(255, 187, 50, 0.15);
+}
+
+.news-box:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+    transform: translateY(-2px);
+    border-color: rgba(255, 187, 50, 0.55);
+}
+
+/* ホバー時に下線が出ないよう ::after を無効化 */
+.news-box:hover::after,
+.news-box:focus::after {
+    display: none;
+}
+
+.catego {
+    grid-area: catego;
+    font-size: 0.72rem;
+    text-align: left;
+    align-self: center;
+    float: none;
+    line-height: 1;
+}
+
+.date {
+    grid-area: date;
+    font-size: 0.72rem;
+    color: #b07020;
+    white-space: nowrap;
+    align-self: center;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+}
+
+.dark .date {
+    color: #ffc85b;
+}
+
+.news-title {
+    grid-area: title;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    min-width: 0;
+    line-height: 1.6;
+    color: inherit;
+}
+
+.des {
+    grid-area: des;
+    font-size: 0.78rem;
+    opacity: 0.6;
+    text-align: center;
+    margin-top: 0;
+    line-height: 1.4;
+}
+
+/* =====================
+   カテゴリーバッジ
+   ===================== */
+.緊急               { background: #ff5a47; color: #fff; padding: 3px 10px; border-radius: 999px; display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; }
+.特大お知らせ        { background: #ffb020; color: #fff; padding: 3px 10px; border-radius: 999px; display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; }
+.ちょっとしたお知らせ { background: #2ec87a; color: #fff; padding: 3px 10px; border-radius: 999px; display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; }
+.投票               { background: #7a7a8a; color: #fff; padding: 3px 10px; border-radius: 999px; display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; }
+
+/* =====================
+   News page: フィルター・コントロール
+   ===================== */
+.news-controls {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin: 0 auto 20px;
+    align-items: center;
+    max-width: 780px;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.news-controls button {
+    margin: 4px 4px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(0, 0, 0, 0.12);
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Jost', 'zenkaku', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #5a3e00;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.dark .news-controls button {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: transparent;
+    color: #ffd98a;
+}
+
+.news-controls button:hover {
+    background: rgba(255, 170, 0, 0.12);
+    border-color: #ffaa00;
+}
+
+.news-controls button.active {
+    background: #ffaa00;
+    color: #fff;
+    border-color: #ffaa00;
+}
+
+.controls-right {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#sortSelect,
+#q {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff8ec;
+    font-family: 'Jost', 'zenkaku', sans-serif;
+    font-size: 0.85rem;
+}
+
+.dark #sortSelect,
+.dark #q {
+    background: #1b1200;
+    border-color: #1a1a1a;
+    color: #fff6e5;
+}
+
+.news-empty {
+    color: #aaa;
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+/* =====================
+   News page: ヒーロー壁紙
+   ===================== */
+.top-wall-news * {
+    position: relative;
+    z-index: 2;
+}
+
+.top-wall-news {
+    position: relative;
+    background-image: url(../images/news_web.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-top: 180px;
+    padding-bottom: 300px;
+}
+
+.top-wall-news::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #fff8eb3a;
+    z-index: 1;
+}
+
+.dark .top-wall-news::before {
+    background-color: #110c023a;
+}
+
+/* =====================
+   News page: テキスト装飾
+   ===================== */
+.color-7 span { color: #aaaaaa; }
+.color-c span { color: #ff5353; }
+
+b { font-size: 125%; }
+
+/* =====================
+   Responsive (News)
+   ===================== */
+@media (max-width: 768px) {
+    .top-wall {
+        padding-top: 120px;
+        padding-bottom: 280px;
+        background-position: center center;
+        background-attachment: scroll;
+    }
+
+    .welcome-text {
+        font-size: 40px;
+    }
+
+    .visitor-counter {
+        min-width: auto;
+        max-width: 90%;
+    }
+
+    .scroll-text {
+        font-size: 40px;
+    }
+
+    .scroll-text span {
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .logo-slot {
+        width: 100px;
+        height: 100px;
+    }
+
+    .welcome-text {
+        font-size: 40px;
+    }
+
+    .news-box {
+        font-size: 0.88rem;
+        padding: 14px 16px 14px 20px;
+        border-radius: 12px;
+    }
+
+    .news-title {
+        font-size: 0.95rem;
+    }
+
+    .scroll-text {
+        font-size: 8px;
+    }
+
+    .news-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls-right {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #q {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

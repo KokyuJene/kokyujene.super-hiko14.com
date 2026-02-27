@@ -42,212 +42,6 @@
   <link rel="shortcut icon" href="https://kokyujene.super-hiko14.com/favicon.ico">
 </head>
 
-<style>
-#heroWrapper {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-  z-index: 2000;
-  overflow: hidden;
-  transition: opacity 0.3s ease;
-}
-
-#heroInner {
-  width: 100vw;
-  height: 100vh;
-  background: url("images/wall_back.webp") center/cover no-repeat;
-  border-radius: 0;
-  will-change: transform, border-radius, width, height;
-}
-
-.logo-slot {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: inline-block;
-  position: relative;
-}
-
-.logo-slot img#slotImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.welcome-text {
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  font-size: 50px;
-}
-
-.news-box {
-  padding: 15px 20px;
-  margin: 12px auto;
-  border-radius:16px;
-  background:#ffbb32;
-  color: #fff4ea;
-  box-shadow:0 2px 8px rgba(0,0,0,0.06);
-  margin-bottom:12px;
-  font-family: 'Jost', 'zenkaku', sans-serif;
-  font-size: 18px;
-  text-align: center;
-  align-items: center;
-  width: 600px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.dark .news-box {
-  background:#81580b;
-  color: #fff8eb;
-}
-
-.news-box:hover {
-  opacity: 0.8;
-}
-
-.news-title {
-  flex-grow: 1;
-  text-align: center;
-  min-width: 0;
-}
-
-.catego, .date {
-  font-size: 60%;
-}
-
-#news-list {
-    list-style: none;
-    padding: 0;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#news-list li {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-#news-list li p,
-#news-list li a { 
-    text-align: center;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.catego {
-  float: left;
-}
-
-.scroll-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-}
-
-.scroll-text {
-    display: inline-block;
-    animation: scroll 20s linear infinite;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #130d00;
-    letter-spacing: 0.05em;
-}
-
-.dark .scroll-text {
-    color: #000;
-    background-color: #fff6e2;
-}
-
-.scroll-text span {
-    margin: 0 40px;
-}
-
-@keyframes scroll {
-    0% {
-transform: translateX(0);
-    }
-    100% {
-transform: translateX(-50%);
-    }
-}
-
-.visitor-counter {
-    padding: 20px;
-    margin: 20px auto;
-    background-color: #fff1d6;
-    border-radius: 16px;
-    text-align: center;
-    min-width: 500px;
-    max-width: 600px;
-}
-
-.dark .visitor-counter {
-    background-color: #362400;
-}
-
-@media (max-width: 768px) {
-    .scroll-text {
-        font-size: 40px;
-    }
-    .scroll-text span {
-        margin: 0 20px;
-    }
-
-    .news-box {
-      width: 500px;
-    }
-}
-
-@media screen and (max-width: 580px) {
-    .logo-slot {
-      width: 100px;
-      height: 100px;
-    }
-
-    .welcome-text {
-      font-size: 40px;
-    }
-
-    .news-box {
-      font-size: 12px;
-      padding: 10px 15px;
-    }
-
-    .scroll-text {
-        font-size: 8px;
-    }
-
-    .news-box {
-      width: 250px;
-    }
-
-    .news-box {
-      border-radius:12px;
-    }
-
-    .visitor-counter {
-        min-width: 200px;
-        max-width: 300px;
-    }
-}
-</style>
 
 <body>
 
@@ -433,19 +227,22 @@ transform: translateX(-50%);
 </main>
 
 <footer>
-  <a href="#top" id="scrollTopButton">
-  <img src="https://kokyujene.super-hiko14.com/images/title.webp">
-  </a>
-  <div class="footer-icon">
-  <img id="theme-icon" src="https://kokyujene.super-hiko14.com/images/moon.webp" alt="テーマ切替" class="theme-toggle-icon">
+  <div class="footer-top">
+    <a href="#top" id="scrollTopButton">
+      <img src="https://kokyujene.super-hiko14.com/images/title.webp" alt="高級ジェネ">
+    </a>
+    <div class="footer-icon">
+      <img id="theme-icon" src="https://kokyujene.super-hiko14.com/images/moon.webp" alt="テーマ切替" class="theme-toggle-icon">
+    </div>
   </div>
-
-  <div class="footer-link">
+  <div class="footer-bottom">
     <p>© 2025-<span id="year"></span> 高級ジェネ™ All rights reserved.</p>
-    <a href="https://legal.super-hiko14.com/privacypolicy" class="footer-link">プライバシーポリシー</a>
-    <a href="https://legal.super-hiko14.com/terms" class="footer-link">利用規約</a>
-    <a href="https://kokyujene.super-hiko14.com/license" class="footer-link">ライセンス</a>
-    <a href="https://kokyujene.super-hiko14.com/contact" class="footer-link">お問い合わせ</a>
+    <nav class="footer-nav">
+      <a href="https://legal.super-hiko14.com/privacypolicy">プライバシーポリシー</a>
+      <a href="https://legal.super-hiko14.com/terms">利用規約</a>
+      <a href="https://kokyujene.super-hiko14.com/license">ライセンス</a>
+      <a href="https://kokyujene.super-hiko14.com/contact">お問い合わせ</a>
+    </nav>
   </div>
 </footer>
 
@@ -651,9 +448,11 @@ fetch("news/news.json")
       const li = document.createElement("li");
       li.innerHTML = `
         <a href="${item.link}" class="news-box">
-          <div class=catego><span class="tag"> » ${item.category} « </span></div><div class=news-title> ${item.title} </div><div class=date>${item.date}</div>
+          <div class="catego"><span class="${item.category}">» ${item.category} «</span></div>
+          <div class="date">${item.date}</div>
+          <div class="news-title">${item.title}</div>
         </a>
-        `;
+      `;
       list.appendChild(li);
     });
   })
