@@ -1,56 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Root -->
   <url>
     <loc>https://kokyujene.super-hiko14.com/</loc>
-    <lastmod>2025-11-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
+    <lastmod>2026-03-04</lastmod>
+    <priority>1.0</priority>
   </url>
-
-  <!-- Members index -->
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/about/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/contact/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/license/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.5</priority>
+  </url>
   <url>
     <loc>https://kokyujene.super-hiko14.com/members/</loc>
-    <lastmod>2025-11-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.8</priority>
   </url>
-
-  <!-- Member pages -->
-  <url>
-    <loc>https://kokyujene.super-hiko14.com/members/super-hiko14/</loc>
-    <lastmod>2025-11-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.64</priority>
-  </url>
-
-  <url>
-    <loc>https://kokyujene.super-hiko14.com/members/kennova758/</loc>
-    <lastmod>2025-11-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.64</priority>
-  </url>
-
   <url>
     <loc>https://kokyujene.super-hiko14.com/members/kazekiri900/</loc>
-    <lastmod>2025-11-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.64</priority>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
   </url>
-
-  <!-- Rules -->
   <url>
-    <loc>https://kokyujene.super-hiko14.com/rules/</loc>
-    <lastmod>2025-11-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.70</priority>
+    <loc>https://kokyujene.super-hiko14.com/members/kennova758/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
   </url>
-
-  <!-- News -->
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/members/super-hiko14/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://kokyujene.super-hiko14.com/news/</loc>
-    <lastmod>2025-11-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.90</priority>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/news/001/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/news/002/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/news/003/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/news/004/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/news/005/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/rules/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/tool/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/tool/base64/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/tool/polygon/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kokyujene.super-hiko14.com/tool/study/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
