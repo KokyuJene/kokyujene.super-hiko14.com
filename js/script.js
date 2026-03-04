@@ -180,9 +180,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 戻るボタン機能(グローバルスコープに配置)
 function goBack() {
-  if (document.referrer.includes("kokyujene.github.io")) {
+  if (
+    document.referrer.includes("kokyujene.super-hiko14.com") ||
+    document.referrer.includes("kokyujene.github.io")
+  ) {
     history.back();
   } else {
-    window.location.href = "https://kokyujene.super-hiko14.com/";
+    window.location.href = "https://kokyujene.super-hiko14.com/members/";
   }
 }
