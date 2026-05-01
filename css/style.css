@@ -951,7 +951,7 @@ footer p {
     }
     
     p {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .members {
@@ -1023,7 +1023,7 @@ footer p {
     }
     
     h2 {
-        font-size: 25px;
+        font-size: 30px;
     }
 
     .sub-title {
@@ -1031,11 +1031,11 @@ footer p {
     }
 
     p {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .mini-text {
-        font-size: 8px;
+        font-size: 14px;
     }
 
     .status-box {
