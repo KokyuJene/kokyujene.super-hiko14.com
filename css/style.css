@@ -194,7 +194,7 @@ header {
   height: 44px;
   border: none;
   background: #ffe3ac6c;
-  border-radius: 8px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -417,7 +417,7 @@ body.menu-open {
   display: inline-block;
   padding: 12px 24px;
   font-size: 18px;
-  border-radius: 16px;
+  border-radius: 24px;
   background-color: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: var(--text-color);
@@ -435,18 +435,6 @@ body.menu-open {
   background-color: rgba(0, 63, 0, 0.5);
   border-color: rgba(0, 82, 0, 0.5);
   color: #d1ffd1;
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 0px rgba(0, 255, 0, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.9);
-  }
-  100% {
-    box-shadow: 0 0 0px rgba(0, 255, 0, 0);
-  }
 }
 
 .status-glow {
@@ -482,8 +470,7 @@ body.menu-open {
     background-color: #ffbb32;
     color: #fff4ea;
     font-size: 18px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border-radius: 16px;
+    border-radius: 24px;
     text-align: center;           /* ← テキストを中央揃え */
 }
 
@@ -739,7 +726,7 @@ p {
     padding: 20px;
     margin: 20px auto;
     background-color: #fff1d6;
-    border-radius: 16px;
+    border-radius: 24px;
     text-align: center;
 }
 
@@ -856,6 +843,10 @@ footer p {
     }
     .footer-nav {
         justify-content: flex-start;
+    }
+    
+    .theme-toggle-icon {
+        float: right;
     }
 }
 
@@ -1056,7 +1047,7 @@ footer p {
         width: auto;
         padding: 10px; 
         align-items: flex-start;
-        margin: 0 auto;
+        margin: 0 0;
     }
 
     footer p {
@@ -1064,12 +1055,13 @@ footer p {
     }
 
     footer img {
-        float: left;
+        float: right;
         width: 200px;
         height: auto;
     }
 
     .footer-icon img {
+        float: right;
         width: 15px;
         height: auto;
     }
@@ -1083,10 +1075,7 @@ footer p {
         display: block;
     }
 
-    .footer-link {
-        text-decoration: none;
-        color: inherit;
-        margin-left: 10px;
+    nav {
         font-size: 10px;
     }
 
@@ -1231,7 +1220,7 @@ footer p {
     padding: 20px;
     margin: 20px auto;
     background-color: #fff1d6;
-    border-radius: 16px;
+    border-radius: 24px;
     text-align: center;
     min-width: 500px;
     max-width: 600px;
@@ -1241,9 +1230,6 @@ footer p {
     background-color: #362400;
 }
 
-/* =====================
-   News box (共通カード)
-   ===================== */
 #news-list {
     list-style: none;
     padding: 0 16px;
@@ -1264,56 +1250,40 @@ footer p {
 }
 
 .news-box {
-    display: grid;
-    grid-template-areas:
-        "catego date"
-        "title  title"
-        "des    des";
-    grid-template-columns: 1fr auto;
-    gap: 8px 12px;
-    padding: 18px 24px;
-    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 24px;
+    border-radius: 24px;
     width: 100%;
-    background: #fffaf0;
+    background: #fff3db;
     color: #1d0e00;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
     font-size: 1rem;
     text-decoration: none;
     box-sizing: border-box;
-    border: 1px solid rgba(255, 187, 50, 0.25);
-    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    border: 1.5px solid rgba(255, 242, 216, 0.3);
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-}
-
-/* 左アクセントライン */
-.news-box::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: #ffbb32;
-    border-radius: 14px 0 0 14px;
-    /* 下線アニメーション上書き */
-    transform: none !important;
-    height: 100% !important;
-    opacity: 1 !important;
-    transition: none;
-    pointer-events: none;
+    min-height: 100px;
+    gap: 12px;
 }
 
 .dark .news-box {
-    background: #1e1200;
+    background: #0f0b04;
     color: #fff8eb;
-    border-color: rgba(255, 187, 50, 0.15);
+    border-color: rgba(19, 17, 12, 0.25);
 }
 
 .news-box:hover {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
-    transform: translateY(-2px);
-    border-color: rgba(255, 187, 50, 0.55);
+    border-color: rgba(255, 230, 181, 0.5);
+    background: #fff5dd;
+}
+
+.dark .news-box:hover {
+    background: #080501;
+    border-color: rgba(12, 12, 11, 0.5);
 }
 
 /* ホバー時に下線が出ないよう ::after を無効化 */
@@ -1323,45 +1293,71 @@ footer p {
 }
 
 .catego {
-    grid-area: catego;
-    font-size: 0.72rem;
-    text-align: left;
-    align-self: center;
+    font-size: 0.62rem;
+    text-align: center;
+    align-self: flex-start;
+    position: absolute;
+    top: 12px;
+    right: 12px;
     float: none;
     line-height: 1;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+}
+
+.news-box:hover .catego {
+    opacity: 1;
 }
 
 .date {
-    grid-area: date;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: #b07020;
     white-space: nowrap;
     align-self: center;
     letter-spacing: 0.04em;
-    font-weight: 600;
+    font-weight: 500;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    bottom: 12px;
+    left: 24px;
+    margin: 0;
 }
 
 .dark .date {
     color: #ffc85b;
 }
 
+.news-box:hover .date {
+    opacity: 1;
+}
+
 .news-title {
-    grid-area: title;
     text-align: center;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-weight: 700;
     min-width: 0;
-    line-height: 1.6;
+    line-height: 1.5;
     color: inherit;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
 }
 
 .des {
-    grid-area: des;
-    font-size: 0.78rem;
-    opacity: 0.6;
+    font-size: 0.8rem;
+    opacity: 0.7;
     text-align: center;
-    margin-top: 0;
-    line-height: 1.4;
+    margin-top: 8px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.news-box:hover .des {
+    opacity: 0.9;
 }
 
 /* =====================
@@ -1428,7 +1424,7 @@ footer p {
 #sortSelect,
 #q {
     padding: 6px 10px;
-    border-radius: 6px;
+    border-radius: 24px;
     border: 1px solid #ddd;
     background: #fff8ec;
     font-family: 'Jost', 'zenkaku', sans-serif;
@@ -1529,13 +1525,26 @@ b { font-size: 125%; }
     }
 
     .news-box {
-        font-size: 0.88rem;
-        padding: 14px 16px 14px 20px;
-        border-radius: 12px;
+        font-size: 0.85rem;
+        padding: 24px 20px;
+        border-radius: 24px;
+        min-height: 110px;
     }
 
     .news-title {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
+    }
+
+    .catego {
+        font-size: 0.58rem;
+        top: 10px;
+        right: 10px;
+    }
+
+    .date {
+        font-size: 0.65rem;
+        bottom: 10px;
+        left: 20px;
     }
 
     .scroll-text {
@@ -1555,5 +1564,9 @@ b { font-size: 125%; }
     #q {
         width: 100%;
         box-sizing: border-box;
+    }
+
+    .footer-icon {
+        float: right;
     }
 }
