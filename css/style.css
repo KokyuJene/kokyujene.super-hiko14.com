@@ -846,7 +846,7 @@ footer p {
     }
     
     .theme-toggle-icon {
-        float: right;
+        margin-left: 25px;
     }
 }
 
@@ -1055,13 +1055,11 @@ footer p {
     }
 
     footer img {
-        float: right;
         width: 200px;
         height: auto;
     }
 
     .footer-icon img {
-        float: right;
         width: 15px;
         height: auto;
     }
@@ -1082,7 +1080,7 @@ footer p {
     .my-button {
         font-size: 12px;
         padding: 10px 15px;
-        border-radius:12px;
+        border-radius: 24px;
     }
 
     .link-buttons .my-button {
